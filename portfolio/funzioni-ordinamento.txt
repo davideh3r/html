@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+void scambio(int x1,int x2)
+{
+    int app;
+    x1=app;
+    x1=x2;
+    x2=app;
+
+}
+
+void bubblesort(int v[],int n)
+{
+    bool s;
+    do
+    {
+        s=false;
+        for (int i = 0; i < n; i++)
+        {
+            if (v[i]>v[i+1])
+            {
+                scambio(v[i],v[i+1]);
+                s=true;
+            }   
+        }
+    } while (s);
+}
+
+
+void exchangeSort(int vett[],int& n) 
+{
+    for (int i = 0; i < n-1; i++)
+    {
+        for (int j = i+1; j <n ; j++)
+        {
+            if (vett[i]>vett[j])
+            {
+                scambio(vett[i],vett[j]);
+            }   
+        }   
+    }   
+}

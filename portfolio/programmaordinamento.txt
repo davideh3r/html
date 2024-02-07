@@ -1,0 +1,75 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+void caricamentovettore(int vett[], int n)
+{
+    srand(time(NULL));
+    for (int i = 0; i < n; i++)
+    {
+        vett[i]=rand() %100;
+    }   
+}
+void visualizzazioneVettore(int vett[],int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout<<vett[i]<<" ";
+    }   
+}
+void scambio(int &x1,int &x2)
+{
+    int app;
+    app=x1;
+    x1=x2;
+    x2=app;
+}
+void ordinamentoCrescente(int vett[],int& n)
+{
+    for (int i = 0; i < n-1; i++)
+    {
+        for (int j = i+1; j <n ; j++)
+        {
+            if (vett[i]>vett[j])
+            {
+                scambio(vett[i],vett[j]);
+            }   
+        }   
+    }   
+}
+void ordinamentoDecrescente(int vett[],int& n)
+{
+    for (int i = 0; i < n-1; i++)
+    {
+        for (int j = i+1; j <n ; j++)
+        {
+            if (vett[i]<vett[j])
+            {
+                scambio(vett[i],vett[j]);
+            }   
+        }   
+    }   
+}
+int main()
+{
+    char scelta;
+    int vett[10],n;
+    cout<<"di quanti valori e composto il vettore?: ";
+    cin>>n;
+    caricamentovettore(vett,n);
+    visualizzazioneVettore(vett,n);
+    cout<<endl;
+    cout<<"in che modo si desidera ordinare il vettore? crescente(c), decrescente(d)";
+    cin>>scelta;
+    if (scelta=='c')
+    {
+        ordinamentoCrescente(vett,n);
+        visualizzazioneVettore(vett,n);
+    }
+    else 
+    {
+        ordinamentoDecrescente(vett,n);
+        visualizzazioneVettore(vett,n);
+    }
+    return 0;
+}

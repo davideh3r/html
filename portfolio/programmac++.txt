@@ -1,0 +1,141 @@
+#include <iostream>
+using namespace std;
+
+
+struct macchina
+{
+    int passeggeri;
+    int cilindrata;    
+};
+
+float mediaPasseggeri(macchina v[],int n)
+{
+    float mediaPasseggeri=0;
+    for (int i = 0; i < n; i++)
+    {
+        mediaPasseggeri+=(float)v[i].passeggeri;
+    }
+    mediaPasseggeri=mediaPasseggeri/n;
+
+    return mediaPasseggeri;
+    
+}
+
+int cilindrataMassima(macchina v[],int n)
+{
+    int max=v[0].cilindrata;
+    for (int i = 1; i < n; i++)
+    {
+        if (v[i].cilindrata>max)
+        {
+            max=v[i].cilindrata;
+        }
+        
+    }
+    return max;
+}
+
+int cilindrataMinima(macchina v[],int n)
+{
+    int min=v[0].cilindrata;
+    for (int i = 1; i < n; i++)
+    {
+        if (v[i].cilindrata<min)
+        {
+            min=v[i].cilindrata;
+        }
+        
+    }
+    return min;
+}
+
+void scambio(macchina &x1,macchina &x2)
+{
+    macchina app;
+    x1=app;
+    x1=x2;
+    x2=app;
+
+}
+void OrdinamentoCilindrata(macchina v[],int n)
+{
+    bool s;
+    do
+    {
+        s=false;
+        for (int i = 0; i < n-1; i++)
+        {
+            if (v[i].cilindrata>v[i+1].cilindrata)
+            {
+                scambio(v[i],v[i+1]);
+                s=true;
+            }
+            
+        }
+        
+    } while (s);
+    
+}
+
+bool ricercaSequenziale(macchina v[],int n, int x)
+{
+    bool ris=false;
+    for (int i = 0; i < n; i++)
+    {
+        if (v[i].cilindrata==x)
+        {
+            return true;
+        }
+        
+    }
+    return false;
+}
+
+int ricercaSequenziale2(macchina v[],int n, int x)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (v[i].cilindrata==x)
+        {
+            return i;
+        }
+        
+    }
+    return -1;
+}
+
+
+float mediaCilindrata(macchina v[],int n)
+{
+    float cilindrataMedia=0;
+    for (int i = 0; i < n; i++)
+    {
+        cilindrataMedia+=(float)v[i].cilindrata;
+    }
+    cilindrataMedia=cilindrataMedia/n;
+
+    return cilindrataMedia;
+    
+}
+
+int sopraMedia(macchina v[],int n)
+{
+    float media=mediaCilindrata(v,n);
+    int cont=0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (v[i].cilindrata>media)
+        {
+            cont++;
+        }
+        
+    }
+    return cont;
+}
+
+int main()
+{
+    macchina v[50];
+    int n;
+}

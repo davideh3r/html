@@ -1,0 +1,70 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+struct voto
+{
+    unsigned int indice;
+    unsigned int storia;
+    unsigned int informatica;
+};
+
+float mediaStoria(voto classe[],int n)
+{
+    int media=0;
+    for (int i = 0; i < n; i++)
+    {
+        media+=(float)classe[i].storia;
+    }
+    media=media/n;
+    return media;
+} 
+
+
+float mediaInformatica(voto classe[],int n)
+{
+    float media=0;
+    for (int i = 0; i < n; i++)
+    {
+        media+=(float)classe[i].informatica;
+    }
+    media=media/n;
+    return media;
+}
+
+void visualizzaVoti(voto v[],int n)
+{
+    cout<<"indice "<<"storia "<<"informatica "<<endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout<<v[i].indice<<"      "<<v[i].storia<<"       "<<v[i].informatica<<endl;
+    
+    }
+    
+}
+
+
+void inserisciVoti(voto v[],int n)
+{
+    srand(time(NULL));
+    for (int i = 0; i < n; i++)
+    {
+        v[i].indice=i+1;
+        v[i].storia=(unsigned int)rand()%10+1;
+        v[i].informatica=(unsigned int)rand()%10+1;
+    }
+    
+
+}
+
+int main()
+{
+    voto v[20];
+    int n=20;
+    inserisciVoti(v,n);
+    visualizzaVoti(v,n);
+    cout<<endl;
+    cout<<"la media di storia e': "<<mediaStoria(v,n)<<endl;
+    cout<<"la media di informatica e': "<<mediaInformatica(v,n)<<endl;
+
+}

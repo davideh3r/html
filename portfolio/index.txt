@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            height: 750px;
+            width: 750px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            position: relative;
+            left: 50%;
+            background-color: blue;
+            height: 500px;
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+        .parent{
+            background-color: black;
+            height: 400px;
+            width: 400px;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            align-content: space-around;
+            flex-direction: row;
+            align-items: center;
+        }
+        .child{
+            background-color: yellow;
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div> 
+        </div>
+    </div>
+</body>
+</html>
